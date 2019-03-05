@@ -1,7 +1,7 @@
 from unittest import TestCase
-from temperature import main
+from temperature import Temp
 
 
 class TestConsole(TestCase):
     def test_basic(self):
-        main()
+        self.assertEqual(Temp.calc(1, 'f'), None)

@@ -22,31 +22,18 @@ class Temp:
             cls.calc(temp, unit)
         except IndexError:
             print(CUSTOM_ERROR_MESSAGE)
-            cls.repeat()
 
     # calculation method: can be imported into single use method.
     @classmethod
     def calc(cls, temp, unit):
         if unit == 'c':
-            fahrenheit = (9.0 / 5.0) * (temp + 32.0)
+            fahrenheit = (9.0 / 5.0) * temp + 32.0
             print(f"{temp:.2f}(°C) is equal to {fahrenheit:.2f}(°F)")
         elif unit == 'f':
             celsius = (5.0 * float(temp) - 160.0) / 9.0
             print(f"{temp:.2f}(°F) is equal to {celsius:.2f}(°C)")
         else:
             print(CUSTOM_ERROR_MESSAGE)
-
-        cls.repeat()
-
-    # asking user to continue or abort the program.
-    @classmethod
-    def repeat(cls):
-        user_repeat = input('Continue (y/n)?').lower()
-        if user_repeat == 'y':
-            cls.get_user_temp_calc()
-        if user_repeat != 'y' and user_repeat != 'n':
-            print("Sorry! Yes(y) - No(n)")
-            cls.repeat()
 
 
 def main():
